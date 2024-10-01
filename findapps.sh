@@ -1,0 +1,2 @@
+# Generate a list of installed applications and their versions
+sudo find /Applications -iname '*.app' -maxdepth 3 -exec basename {}, \; -exec echo -n {}"," \; -exec mdls -name kMDItemVersion {} \; | sed 's/kMDItemVersion =//g' | sed 's/\"//g'; > ~/Desktop/apps.txt
